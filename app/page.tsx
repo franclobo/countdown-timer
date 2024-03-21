@@ -46,7 +46,7 @@ export default function Home() {
 
   return (
     <div className="clock flex flex-col justify-center items-center h-screen text-xl leading-8">
-      <h1 className="text-white uppercase font-bold mb-10 tracking-wide-2 text-base">We're launching soon</h1>
+      <h1 className="text-white uppercase font-bold mb-10 tracking-wide-2 text-base">We&apos;re launching soon</h1>
       <div className="flex space-x-2 tracking-wide-2">
         <div className="flex flex-col items-center">
           <div className="container">
