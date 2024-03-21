@@ -3,27 +3,89 @@
 @tailwind utilities;
 
 :root {
+  --primary: 255, 255, 255;
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --grayish-blue-rgba: 132, 134, 169, 1;
+  --soft-red-rgba: 251, 96, 135, 1;
+  --dark-desatured-blue-rgba: 54, 54, 80, 0.8;
+  --very-dark-blue-rgba: 30, 31, 41, 0.8;
+  --very-dark-rgba: 25, 26, 36, 0.8;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --primary: 0, 0, 0;
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --grayish-blue-rgba: 132, 134, 169, 1;
+    --soft-red-rgba: 251, 96, 135, 1;
+    --dark-desatured-blue-rgba: 54, 54, 80, 0.8;
+    --very-dark-blue-rgba: 30, 31, 41, 0.8;
+    --very-dark-rgba: 25, 26, 36, 0.8;
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-image: url(../public/bg-stars.svg);
+  background-color: rgb(var(--dark-desatured-blue-rgba));
+  background-size: cover;
+}
+.text-white {
+  color: rgb(var(--primary));
+}
+.text-red {
+  color: rgb(var(--soft-red-rgba));
+}
+.text-gray {
+  color: rgb(var(--grayish-blue-rgba));
+}
+.bg-dark {
+  background-color: rgb(var(--very-dark-rgba));
+}
+.bg-dark-blue {
+  background-color: rgb(var(--very-dark-blue-rgba));
+}
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(var(--very-dark-blue-rgba));
+  border-radius: 10px;
+  height: 100px;
+  margin: 0;
+  padding-bottom: 10px;
+}
+.rectangle_dark {
+  height: 50px;
+  width: 100px;
+  background-color: rgb(var(--very-dark-rgba));
+  border-radius: 10px;
+  z-index: -1;
+}
+.rectangle_blue {
+  height: 50px;
+  width: 100px;
+  background-color: rgb(var(--very-dark-blue-rgba));
+  border-radius: 10px;
+  z-index: -1;
+}
+.text {
+  font-size: 50px;
+  position: absolute;
+  z-index: 1;
+}
+.clock {
+  background-image: url(../public/pattern-hills.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  width: 100vw;
+  z-index: -3;
+}
+.tracking-wide-2 {
+  letter-spacing: 3px;
 }
 
 @layer utilities {
