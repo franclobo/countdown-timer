@@ -82,6 +82,7 @@ Add flip animation.
 
 - [Next docs](https://nextjs.org/docs/getting-started/installation) - This help me to use NextJS.
 - [HyperUI](https://www.hyperui.dev/) - This could be helpfull for stylished projects.
+- [Flip animation](https://www.youtube.com/watch?v=p_6IuhmBsfc&t=329s) - This is an amazing video that helped me to understand how to make a flip animation.
 
 ## Author
 

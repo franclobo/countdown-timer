@@ -34,11 +34,13 @@ export default function Home() {
     return timeLeft;
   };
 
+  const [prevTimeLeft, setPrevTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setTimeLeft(calculateTimeLeft());
+      setPrevTimeLeft(timeLeft);
     }, 1000);
 
     return () => clearTimeout(timer);
@@ -49,34 +51,30 @@ export default function Home() {
       <h1 className="text-white uppercase font-bold mb-10 tracking-wide-2 text-base">We&apos;re launching soon</h1>
       <div className="flex space-x-2 tracking-wide-2">
         <div className="flex flex-col items-center">
-          <div className="container">
-            <div className="rectangle_dark"></div>
-            <span className="text text-red text-4xl font-bold">{timeLeft.days}</span>
-            <div className="rectangle_blue"></div>
+          <div className="container flip-card">
+            <div className={`top ${prevTimeLeft.days !== timeLeft.days ? 'top-flip' : ''} rectangle_dark text text-red text-4xl font-bold`}>{timeLeft.days}</div>
+            <div className={`bottom ${prevTimeLeft.days !== timeLeft.days ? 'bottom-flip' : ''} rectangle_dark text text-red text-4xl font-bold`}>{timeLeft.days}</div>
           </div>
           <span className="text-gray text-bold uppercase text-xs mt-3">Days</span>
         </div>
         <div className="flex flex-col items-center">
-          <div className="container">
-            <div className="rectangle_dark"></div>
-            <span className="text text-red text-4xl font-bold">{timeLeft.hours}</span>
-            <div className="rectangle_blue"></div>
+        <div className="container flip-card">
+            <div className={`top ${prevTimeLeft.hours !== timeLeft.hours ? 'top-flip' : ''} rectangle_dark text text-red text-4xl font-bold`}>{timeLeft.hours}</div>
+            <div className={`bottom ${prevTimeLeft.days !== timeLeft.days ? 'bottom-flip' : ''} rectangle_dark text text-red text-4xl font-bold`}>{timeLeft.hours}</div>
           </div>
           <span className="text-gray text-bold uppercase text-xs mt-3">Hours</span>
         </div>
         <div className="flex flex-col items-center">
-          <div className="container">
-            <div className="rectangle_dark"></div>
-            <span className="text text-red text-4xl font-bold">{timeLeft.minutes}</span>
-            <div className="rectangle_blue"></div>
+        <div className="container flip-card">
+            <div className={`top ${prevTimeLeft.minutes !== timeLeft.minutes ? 'top-flip' : ''} rectangle_dark text text-red text-4xl font-bold`}>{timeLeft.minutes}</div>
+            <div className={`bottom ${prevTimeLeft.days !== timeLeft.days ? 'bottom-flip' : ''} rectangle_dark text text-red text-4xl font-bold`}>{timeLeft.minutes}</div>
           </div>
           <span className="text-gray text-bold uppercase text-xs mt-3">Minutes</span>
         </div>
         <div className="flex flex-col items-center">
-          <div className="container">
-            <div className="rectangle_dark"></div>
-            <span className="text text-red text-4xl font-bold">{timeLeft.seconds}</span>
-            <div className="rectangle_blue"></div>
+        <div className="container flip-card">
+            <div className={`top ${prevTimeLeft.seconds !== timeLeft.seconds ? 'top-flip' : ''} rectangle_dark text text-red text-4xl font-bold`}>{timeLeft.seconds}</div>
+            <div className={`bottom ${prevTimeLeft.days !== timeLeft.days ? 'bottom-flip' : ''} rectangle_dark text text-red text-4xl font-bold`}>{timeLeft.seconds}</div>
           </div>
           <span className="text-gray text-bold uppercase text-xs mt-3">Seconds</span>
         </div>
